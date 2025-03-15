@@ -10,17 +10,15 @@ const theme = createTheme({
       main: '#F472B6', // Example secondary color
     },
     background: {
-      default: '#1E293B', // Dark background
-      paper: '#334155', // Slightly lighter for cards/paper
+      default: '#331e22',
+      paper: '#8C243F',
     },
     text: {
       primary: '#CBD5E1', // Light text color
       secondary: '#94A3B8', // Slightly darker text
     },
   },
-  typography: {
-    fontFamily: 'Roboto, sans-serif', // Or your preferred font
-  },
+
 });
 
 export default theme;

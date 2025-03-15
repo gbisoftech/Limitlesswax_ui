@@ -8,11 +8,10 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { label: 'About Us', path: '/about' },
+  { label: 'About Us', path: '/aboutus' },
   { label: 'Account', path: '/account' },
   { label: 'Cpu4sale', path: '/cpu4sale' },
   { label: 'Limitlesswax', path: '/limitlesswax' },
-  { label: 'Login', path: '/login' }
 ];
 
 const Header: React.FC = () => {
@@ -23,13 +22,28 @@ const Header: React.FC = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ boxShadow: 'none', py: 2 }}>
+    <Box position="static" sx={{
+      boxShadow: 'none',
+      py: 2,
+      bgcolor: 'transparent' // dark background color
+    }}>
       <Toolbar style={{ justifyContent: "space-between" }} >
         <img src="images/side1 1.png" style={{ width: "100px " }} />
         {isMobile ? (
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Button
+              variant='outlined'
+              key={'/login'}
+              color="inherit"
+              onClick={() => handleNavigation('/login')}
+            >
+              {'Login'}
+            </Button>
+          </Box>
+
         ) : (
           <Box sx={{ display: 'flex', gap: 2 }}>
             {navigationItems.map((item: NavigationItem) => (
@@ -41,10 +55,18 @@ const Header: React.FC = () => {
                 {item.label}
               </Button>
             ))}
+            <Button
+              variant='outlined'
+              key={'/login'}
+              color="inherit"
+              onClick={() => handleNavigation('/login')}
+            >
+              {'Login'}
+            </Button>
           </Box>
         )}
       </Toolbar>
-    </AppBar>
+    </Box>
   );
 };
 
